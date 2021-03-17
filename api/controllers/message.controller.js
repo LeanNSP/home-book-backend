@@ -9,8 +9,8 @@ exports.addMessage = async (req, res, next) => {
     const currentMessage = await MessageModel.create({ name, message });
 
     return res.status(201).json(currentMessage);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   }
 };
 
@@ -19,7 +19,7 @@ exports.getAllMessages = async (req, res, next) => {
     const messages = await MessageModel.find();
 
     return res.status(200).json(messages);
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   }
 };
