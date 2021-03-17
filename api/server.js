@@ -13,7 +13,13 @@ const cors = require('cors');
 
 const { NODE_ENV, PORT, CORS_URL } = require('./config/env.keys');
 
+const connectMongoDB = require('./config/mongoDB');
+
+// create server
 const app = express();
+
+// connection to database
+connectMongoDB();
 
 // In development mode writes a log to the console
 if (NODE_ENV === 'development') {
