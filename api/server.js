@@ -15,6 +15,8 @@ const { NODE_ENV, PORT, CORS_URL } = require('./config/env.keys');
 
 const connectMongoDB = require('./config/mongoDB');
 
+const router = require('./router');
+
 // create server
 const app = express();
 
@@ -46,6 +48,9 @@ app.use(hpp());
 
 app.use(cors({ origin: `${CORS_URL}:${PORT}` }));
 // ---- -------- ----
+
+// Router
+router(app);
 
 const server = app.listen(PORT || 3300, () => {
   console.log(`Server started in ${NODE_ENV} mode on port: ${PORT}`.black.bgWhite.bold);
