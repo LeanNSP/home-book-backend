@@ -1,11 +1,17 @@
 'use strict';
 
 const express = require('express');
-const colors = require('colors');
+const logger = require('morgan');
+require('colors');
 
 const { NODE_ENV, PORT } = require('./config/env.keys');
 
 const app = express();
+
+// In development mode writes a log to the console
+if (NODE_ENV === 'development') {
+  app.use(logger('dev'));
+}
 
 // Body parser
 app.use(express.urlencoded());
