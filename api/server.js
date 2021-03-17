@@ -17,6 +17,8 @@ const connectMongoDB = require('./config/mongoDB');
 
 const router = require('./router');
 
+const errorHandler = require('./middleware/errorHandler');
+
 // create server
 const app = express();
 
@@ -51,6 +53,9 @@ app.use(cors({ origin: `${CORS_URL}:${PORT}` }));
 
 // Router
 router(app);
+
+// error handler
+app.use(errorHandler);
 
 const server = app.listen(PORT || 3300, () => {
   console.log(`Server started in ${NODE_ENV} mode on port: ${PORT}`.black.bgWhite.bold);
