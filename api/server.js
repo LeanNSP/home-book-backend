@@ -11,7 +11,7 @@ const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
 const cors = require('cors');
 
-const { NODE_ENV, PORT } = require('./config/env.keys');
+const { NODE_ENV, PORT, CORS_URL } = require('./config/env.keys');
 
 const connectMongoDB = require('./config/mongoDB');
 
@@ -48,7 +48,7 @@ app.use(limiter);
 
 app.use(hpp());
 
-// app.use(cors({ origin: '*' }));
+app.use(cors({ origin: CORS_URL }));
 // ---- -------- ----
 
 // Router
