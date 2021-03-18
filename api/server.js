@@ -48,7 +48,7 @@ app.use(limiter);
 
 app.use(hpp());
 
-app.use(cors({ origin: '*' }));
+// app.use(cors({ origin: '*' }));
 // ---- -------- ----
 
 // Router
