@@ -47,6 +47,8 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(hpp());
+
+app.use(cors({ origin: '*' }));
 // ---- -------- ----
 
 // Router
