@@ -6,7 +6,7 @@ const ErrorResponse = require('../utils/errorResponse');
 
 exports.validateAddMessage = (req, res, next) => {
   const rules = Joi.object({
-    name: Joi.string().required(),
+    name: Joi.string().min(2).max(20).required(),
     message: Joi.string().min(3).max(450).required(),
   });
 
